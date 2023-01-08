@@ -51,11 +51,16 @@ func StartWithConfig(config *clientConfig) (Client, error) {
 }
 
 func (c *internalClient) Get(key string) (string, error) {
+	var value string
+	var ok bool
 	v, _, err := c.getWithCache(key)
 	if err != nil {
 		return "", err
 	}
-	value := v.Object.(string)
+	if value, ok = v.Object.(string); !ok {
+		log.Printf("current type of the key is not string, cur key: %v", key)
+		return "", errors.New("current type of the key is not string")
+	}
 	return value, nil
 }
 
@@ -71,6 +76,7 @@ func (c *internalClient) RefreshConfig() error {
 func (c *internalClient) getWithCache(key string) (*cache.Item, bool, error) {
 	item, exist := c.cache.Get(key)
 	if !exist {
+		log.Printf("item not exist, current key name: %v", key)
 		return nil, false, errors.New("item not exist")
 	}
 	return item, true, nil
