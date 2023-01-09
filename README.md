@@ -2,6 +2,10 @@
 本项目是抖音云配置中心的SDK插件，用以访问抖音云配置中心。
 
 ## 使用方法
+### 获取与安装
+```go
+go get github.com/bytedance/douyincloud-configcenter-sdk-go
+```
 ### 初始化客户端
 **方式一**：直接初始化
 ```go
