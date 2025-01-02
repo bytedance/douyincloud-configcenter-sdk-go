@@ -8,7 +8,7 @@ import (
 
 const (
 	HttpMethodPost = "POST"
-	DefaultUrl     = "http://config-center.dycloud.run:8699/config/get_config_list"
+	DefaultUrl     = "http://config-center.dyc.ivolces.com"
 	EnvUrl         = "DYC_CONFIG_CENTER_URL"
 )
 

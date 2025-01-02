@@ -1,9 +1,10 @@
 package openapi
 
 type HttpResp struct {
-	Code int                   `json:"code"`
-	Msg  string                `json:"msg"`
-	Data GetConfigListResponse `json:"data"`
+	Code  int                   `json:"code"`
+	Msg   string                `json:"msg"`
+	Data  GetConfigListResponse `json:"data"`
+	LogID string                `json:"log_id"`
 }
 
 type GetConfigListResponse struct {
