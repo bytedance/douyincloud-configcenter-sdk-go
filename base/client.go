@@ -100,6 +100,7 @@ func updateCache(cache2 *cache.Cache, ccClient *http.Client) error {
 
 	var resp openapi.GetConfigListResponse
 	var httpResult openapi.HttpResp
+	log.Printf("get config center raw resp: %v", string(respBody))
 	err = json.Unmarshal(respBody, &httpResult)
 	if err != nil {
 		log.Printf("json unmarshal err in init config, err: %v", err)
